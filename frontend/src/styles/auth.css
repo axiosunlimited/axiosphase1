@@ -1,0 +1,283 @@
+/* ═══════════════════════════════════════════════════
+   Auth / Login
+   ═══════════════════════════════════════════════════ */
+
+/* ── Base shell: horizontal on desktop ── */
+.auth-shell {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ── Left branding panel ── */
+.auth-left {
+  flex: 0 0 42%;
+  max-width: 42%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 40px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  background:
+    linear-gradient(135deg, #1a1d23 0%, #1e2a3a 40%, #0c4a6e 100%);
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.auth-left::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -20%;
+  width: 60%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(14,165,233,0.15), transparent 60%);
+  pointer-events: none;
+}
+
+.auth-left__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 800;
+  font-size: 17px;
+  letter-spacing: 0.3px;
+  margin-bottom: 32px;
+}
+
+.auth-left__brand .brand__icon {
+  background: linear-gradient(135deg, #0ea5e9, #2dd4bf);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.auth-left__headline {
+  font-size: clamp(30px, 3.5vw, 44px);
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0 0 12px;
+  letter-spacing: -0.5px;
+}
+
+.auth-left__sub {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 440px;
+  opacity: 0.8;
+}
+
+/* ── Right form panel ── */
+.auth-right {
+  flex: 1 1 58%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  box-sizing: border-box;
+  position: relative;
+  background: var(--bg-app);
+}
+
+/* ── Auth card: cap width on large screens ── */
+.auth-card {
+  width: 100%;
+  max-width: 440px;
+  box-sizing: border-box;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: 32px;
+}
+
+.auth-card__title {
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0;
+  color: var(--text);
+  letter-spacing: -0.3px;
+}
+
+.auth-card__subtitle {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.auth-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4px;
+  margin-top: 20px;
+}
+
+.auth-divider {
+  margin: 16px 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  font-size: 11px;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  height: 1px;
+  flex: 1;
+  background: var(--border);
+}
+
+/* ── Two-column OTP / Backup grid ── */
+.auth-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.auth-footer {
+  margin-top: 16px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.auth-footer a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* ── Theme FAB: always top-right of the right panel ── */
+.theme-fab {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.theme-fab:hover {
+  box-shadow: var(--shadow);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* ─────────────────────────────────────────────────
+   TABLET  (≤ 900px) — shrink left panel proportions
+───────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .auth-left {
+    flex: 0 0 38%;
+    max-width: 38%;
+    padding: 36px 28px;
+  }
+  .auth-left__headline {
+    font-size: 1.6rem !important;
+    line-height: 1.25 !important;
+  }
+  .auth-right {
+    padding: 36px 20px;
+  }
+}
+
+/* ─────────────────────────────────────────────────
+   MOBILE  (≤ 640px) — stack vertically
+───────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .auth-shell {
+    flex-direction: column;
+  }
+
+  /* Compact branding strip at the top */
+  .auth-left {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+    padding: 28px 20px 24px;
+    min-height: auto;
+  }
+
+  .auth-left__brand {
+    margin-bottom: 12px;
+  }
+
+  .auth-left__headline {
+    font-size: 1.5rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .auth-left__sub {
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+  }
+
+  /* Form panel fills remaining space */
+  .auth-right {
+    flex: 1;
+    width: 100%;
+    padding: 28px 16px 40px;
+    align-items: flex-start;
+  }
+
+  .auth-card {
+    max-width: 100%;
+    padding: 24px;
+  }
+
+  .auth-card__title {
+    font-size: 1.5rem !important;
+  }
+
+  /* Stack OTP / Backup on mobile — one per row */
+  .auth-two-col {
+    grid-template-columns: 1fr;
+  }
+
+  /* Theme toggle: top-right of entire screen */
+  .theme-fab {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 1000;
+  }
+}
+
+/* ─────────────────────────────────────────────────
+   VERY SMALL  (≤ 360px) — extra tightening
+───────────────────────────────────────────────── */
+@media (max-width: 360px) {
+  .auth-left {
+    padding: 20px 14px 18px;
+  }
+  .auth-left__headline {
+    font-size: 1.25rem !important;
+  }
+  .auth-right {
+    padding: 20px 12px 32px;
+  }
+}
