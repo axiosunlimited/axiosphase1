@@ -70,7 +70,7 @@ import AnalyticsPage from './pages/AnalyticsPage'
 // import SeparationsPage from './pages/workforce/SeparationsPage'
 
 // Governance / Evaluation
-// import ApprovalConfigsPage from './pages/admin/ApprovalConfigsPage'
+import ApprovalConfigsPage from './pages/admin/ApprovalConfigsPage'
 
 // Governance Module
 // import PoliciesPage from './pages/governance/PoliciesPage'
@@ -172,9 +172,7 @@ export default function App() {
             <Route path="groups" element={<GroupsAdminPage />} />
             <Route path="permissions" element={<PermissionsPage />} />
             <Route path="audit-logs" element={<AuditLogsPage />} />
-            {/* Approval Workflows -- Phase 2
             <Route path="approval-workflows" element={<ApprovalConfigsPage />} />
-            */}
             <Route path="imports" element={<ImportsPage />} />
             <Route path="system-settings" element={<SystemSettingsPage />} />
             <Route path="backups" element={<BackupsPage />} />
