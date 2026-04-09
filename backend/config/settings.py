@@ -167,7 +167,7 @@ DOCUMENTS_ALLOWED_EXTENSIONS = env.list(
     default=["pdf", "doc", "docx", "jpg", "jpeg", "png", "img", "gif", "bmp", "webp", "tiff", "txt", "xlsx", "xls", "csv", "pptx", "ppt"],
 )
 
-ACCOUNTS_EMAIL = env("ACCOUNTS_EMAIL", default="alvinchipmunk532@gmail.com")
+ACCOUNTS_EMAIL = env("ACCOUNTS_EMAIL", default="axiosunlimited@gmail.com")
 
 CONTRACT_EXPIRY_LEAD_DAYS = env.list("CONTRACT_EXPIRY_LEAD_DAYS", default=[90, 60, 30])
 PROBATION_LEAD_DAYS = env.list("PROBATION_LEAD_DAYS", default=[30])

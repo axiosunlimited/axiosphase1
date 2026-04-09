@@ -234,7 +234,7 @@ class LeaveRequestViewSet(AuditMixin, viewsets.ModelViewSet):
         self.audit_log("UPDATE", lr, {"field": "status", "to": "APPROVED", "finance_officer": request.user.email})
         notify_user(lr.employee.user, key="leave_approved", context={"message": "Leave fully approved.", "leave_id": lr.id}, title="Leave Approved")
 
-        accounts_email = getattr(settings, "ACCOUNTS_EMAIL", "alvinchipmunk532@gmail.com")
+        accounts_email = getattr(settings, "ACCOUNTS_EMAIL", "axiosunlimited@gmail.com")
         send_email_message(
             accounts_email,
             subject=f"Leave Approved: {lr.employee.employee_number}",
